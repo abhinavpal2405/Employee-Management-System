@@ -22,13 +22,13 @@ const TaskAssignment = ({ employees, onTaskAssigned }) => {
             const token = localStorage.getItem('token');
             
             // First check user role
-            const userResponse = await axios.get('http://localhost:3001/api/auth/me', {
+            const userResponse = await axios.get('https://employee-management-system-9719.onrender.com/api/auth/me', {
                 headers: { Authorization: `Bearer ${token}` }
             });
             console.log('Current user:', userResponse.data);
 
             const response = await axios.post(
-                'http://localhost:3001/api/tasks',
+                'https://employee-management-system-9719.onrender.com/api/tasks',
                 taskForm,
                 { headers: { Authorization: `Bearer ${token}` } }
             );
