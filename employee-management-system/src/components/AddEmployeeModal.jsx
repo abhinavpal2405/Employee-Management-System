@@ -24,7 +24,7 @@ const AddEmployeeModal = ({ isOpen, onClose, onSuccess }) => {
         try {
             const token = localStorage.getItem('token');
             const response = await axios.post(
-                'http://localhost:3001/api/auth/add-employee',
+                'https://employee-management-system-9719.onrender.com/api/auth/add-employee',
                 formData,
                 {
                     headers: { Authorization: `Bearer ${token}` }
