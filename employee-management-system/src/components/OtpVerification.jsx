@@ -16,7 +16,7 @@ const OtpVerification = ({ email, type, onVerificationSuccess, onVerificationErr
 
     const handleCancelOtp = async () => {
         try {
-            await axios.post('http://localhost:8080/api/otp/cancel-otp', { email });
+            await axios.post('https://api.myapp.com/api/otp/cancel-otp', { email });
         } catch (error) {
             console.error('Error cancelling OTP:', error);
         }
@@ -70,7 +70,7 @@ const OtpVerification = ({ email, type, onVerificationSuccess, onVerificationErr
         setError('');
 
         try {
-            const response = await axios.post('http://localhost:8080/api/otp/verify-otp', {
+            const response = await axios.post('https://api.myapp.com/api/otp/verify-otp', {
                 email,
                 otp: otpString
             });
