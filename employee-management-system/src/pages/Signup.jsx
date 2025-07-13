@@ -83,7 +83,7 @@ const Signup = () => {
 
         try {
             // First, send OTP
-            await axios.post('http://localhost:3001/api/otp/send-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/send-otp', {
                 email: formData.email,
                 type: 'signup'
             });
@@ -100,14 +100,14 @@ const Signup = () => {
     const handleOtpVerify = async (otp) => {
         try {
             // First verify OTP
-            await axios.post('http://localhost:3001/api/otp/verify-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/verify-otp', {
                 email: formData.email,
                 otp,
                 type: 'signup'
             });
 
             // Then complete signup
-            const response = await axios.post('http://localhost:3001/api/auth/signup', {
+            const response = await axios.post('https://employee-management-system-9719.onrender.com/api/auth/signup', {
                 name: formData.fullName,
                 email: formData.email,
                 password: formData.password,
@@ -127,7 +127,7 @@ const Signup = () => {
 
     const handleResendOtp = async () => {
         try {
-            await axios.post('http://localhost:3001/api/otp/send-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/send-otp', {
                 email: formData.email,
                 type: 'signup'
             });
