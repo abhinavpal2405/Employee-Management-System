@@ -69,7 +69,7 @@ const ForgotPassword = () => {
         e.preventDefault();
         setIsLoading(true);
         try {
-            await axios.post('http://localhost:3001/api/otp/send-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/send-otp', {
                 email,
                 type: 'forgot',
                 role
@@ -85,7 +85,7 @@ const ForgotPassword = () => {
 
     const handleVerificationSuccess = async (otp) => {
         try {
-            await axios.post('http://localhost:3001/api/otp/verify-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/verify-otp', {
                 email,
                 otp,
                 type: 'forgot'
@@ -100,7 +100,7 @@ const ForgotPassword = () => {
     const handleResendOtp = async () => {
         setIsLoading(true);
         try {
-            await axios.post('http://localhost:3001/api/otp/send-otp', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/otp/send-otp', {
                 email,
                 type: 'forgot',
                 role
@@ -126,7 +126,7 @@ const ForgotPassword = () => {
 
         setIsLoading(true);
         try {
-            await axios.post('http://localhost:3001/api/auth/reset-password', {
+            await axios.post('https://employee-management-system-9719.onrender.com/api/auth/reset-password', {
                 email,
                 newPassword: password,
                 role
