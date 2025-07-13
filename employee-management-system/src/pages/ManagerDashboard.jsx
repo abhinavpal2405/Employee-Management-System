@@ -202,10 +202,10 @@ const ManagerDashboard = () => {
             };
 
             const [statsRes, employeesRes, leavesRes, tasksRes] = await Promise.all([
-                axios.get('http://localhost:3001/api/auth/stats', config),
-                axios.get('http://localhost:3001/api/auth/employees', config),
-                axios.get('http://localhost:3001/api/leaves', config),
-                axios.get('http://localhost:3001/api/tasks', config)
+                axios.get('https://employee-management-system-9719.onrender.com/api/auth/stats', config),
+                axios.get('https://employee-management-system-9719.onrender.com/api/auth/employees', config),
+                axios.get('https://employee-management-system-9719.onrender.com/api/leaves', config),
+                axios.get('https://employee-management-system-9719.onrender.com/api/tasks', config)
             ]);
 
             setStats(statsRes.data);
@@ -226,7 +226,7 @@ const ManagerDashboard = () => {
         try {
             const token = localStorage.getItem('token');
             await axios.put(
-                `http://localhost:3001/api/leaves/${leaveId}`,
+                `https://employee-management-system-9719.onrender.com/api/leaves/${leaveId}`,
                 { status },
                 { headers: { Authorization: `Bearer ${token}` } }
             );
