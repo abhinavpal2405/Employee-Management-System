@@ -22,7 +22,7 @@ const EmployeeList = ({ employees = [], refreshData }) => {
     }
 
     try {
-      const response = await axios.delete(`http://localhost:3001/api/auth/employees/${employeeId}`, {
+      const response = await axios.delete(`https://employee-management-system-9719.onrender.com/api/auth/employees/${employeeId}`, {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` }
       });
 
@@ -64,7 +64,7 @@ const EmployeeList = ({ employees = [], refreshData }) => {
     e.preventDefault();
     try {
       const response = await axios.put(
-        `http://localhost:3001/api/auth/employees/${selectedEmployee._id}`,
+        `https://employee-management-system-9719.onrender.com/api/auth/employees/${selectedEmployee._id}`,
         {
           name: selectedEmployee.name,
           email: selectedEmployee.email,
