@@ -69,7 +69,7 @@ const EmployeeDashboard = () => {
       const token = localStorage.getItem('token');
       if (!token) return;
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const res = await axios.get('http://localhost:3001/api/attendance/records', config);
+      const res = await axios.get('https://employee-management-system-9719.onrender.com/api/attendance/records', config);
       setAttendanceRecords(res.data);
     } catch (err) {
       setAttendanceRecords([]);
@@ -89,11 +89,11 @@ const EmployeeDashboard = () => {
       };
 
       const [userRes, tasksRes, leavesRes, taskStatsRes, leaveStatsRes] = await Promise.all([
-        axios.get('http://localhost:3001/api/auth/me', config),
-        axios.get('http://localhost:3001/api/tasks/my-tasks', config),
-        axios.get('http://localhost:3001/api/leaves/my-leaves', config),
-        axios.get('http://localhost:3001/api/tasks/stats', config),
-        axios.get('http://localhost:3001/api/leaves/stats', config)
+        axios.get('https://employee-management-system-9719.onrender.com/api/auth/me', config),
+        axios.get('https://employee-management-system-9719.onrender.com/api/tasks/my-tasks', config),
+        axios.get('https://employee-management-system-9719.onrender.com/api/leaves/my-leaves', config),
+        axios.get('https://employee-management-system-9719.onrender.com/api/tasks/stats', config),
+        axios.get('https://employee-management-system-9719.onrender.com/api/leaves/stats', config)
       ]);
 
       const userData = userRes.data;
@@ -150,7 +150,7 @@ const EmployeeDashboard = () => {
       };
       
       await axios.post(
-        'http://localhost:3001/api/leaves',
+        'https://employee-management-system-9719.onrender.com/api/leaves',
         formattedData,
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -168,7 +168,7 @@ const EmployeeDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:3001/api/tasks/${taskId}/accept`,
+        `https://employee-management-system-9719.onrender.com/api/tasks/${taskId}/accept`,
         {},
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -182,7 +182,7 @@ const EmployeeDashboard = () => {
     try {
       const token = localStorage.getItem('token');
       await axios.put(
-        `http://localhost:3001/api/tasks/${taskId}/status`,
+        `https://employee-management-system-9719.onrender.com/api/tasks/${taskId}/status`,
         { status },
         { headers: { Authorization: `Bearer ${token}` } }
       );
@@ -507,7 +507,7 @@ const EmployeeDashboard = () => {
     // Get fresh user data after update
     const token = localStorage.getItem('token');
     const config = { headers: { Authorization: `Bearer ${token}` } };
-    const userRes = await axios.get('http://localhost:3001/api/auth/me', config);
+    const userRes = await axios.get('https://employee-management-system-9719.onrender.com/api/auth/me', config);
     
     // Update user in AuthContext with fresh data
     if (userRes.data) {
